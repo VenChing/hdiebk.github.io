@@ -1969,7 +1969,8 @@ pre .javascript .function {
 }
 .powered-by,
 .theme-info {
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 .cc-license {
   margin-top: 10px;
