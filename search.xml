@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[Thank you for your]]></title>
-    <url>%2F2018%2F05%2F25%2Fblog1%2F</url>
-    <content type="text"><![CDATA[感谢你的访问。今后的这里将是我的茶余饭后的栖息地，我会在这里记录学习、生活上的点滴！]]></content>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F04%2F29%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title>Thank you for your</title>
+      <link href="/2018/05/25/blog1/"/>
+      <url>/2018/05/25/blog1/</url>
+      <content type="html"><![CDATA[<p></p><h2 style="color: red;text-align: center;">感谢你的访问。</h2>今后的这里将是我的茶余饭后的栖息地，我会在这里记录学习、生活上的点滴！<p></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>搭建Hexo</title>
+      <link href="/2018/04/29/hello-world/"/>
+      <url>/2018/04/29/hello-world/</url>
+      <content type="html"><![CDATA[<p>每个程序猿都应该有一个属于自己的写作（zhuang bi）博客！在很早的时候，我就想拥有一个博客，这段时间也折腾的七七八八了吧。分享一下自己折腾的过程！</p><p><hr><br>在折腾这个博客之前，应该对github有所了解，方便我们之后的操作</p><p></p><h3>所需工具：</h3><br>进入官网下载我们需要的两个工具<p></p><p><ol><br>    <a href="https://nodejs.org/en/" title="node.js官网" target="_blank" rel="noopener"><br>        <li>node.js</li><br>    </a>如图：node.js点击红框下载<br>    <img src="http://t1.aixinxi.net/o_1cer22v9c4kd14bt1a2a4vo1otia.jpg-w.jpg" alt=""><br>    <h4>安装完node.js</h4><em>在Custom Setup这步选择 Add to PATH 这样他自己就帮你配置环境变量了，然后在桌面按 win+r输入cmd并打开，输入path，查看配置环境是否配置成功。接下来查看版本号命令：<code>node -v</code><p>下载完成，照常安装即可。其中node.js官方文档推荐的安装方式是用<a href="https://github.com/creationix/nvm" title="" target="_blank" rel="noopener">nvm</a>&nbsp;个人并不推荐这样的安装方式，因为这样的安装方式需要对Github有一定的了解及操作这里不对nvm安装方法进行详解，可自行了解！</p><br>    <a href="https://git-scm.com/" title="git官网" target="_blank" rel="noopener"><br>        <li>git</li><br>    </a>如图：Git下载<br>    <img src="http://t1.aixinxi.net/o_1cer21q9t1v3h1nu11gbjtpk1prca.jpg-w.jpg" alt=""><br>    安装完Git，打开Gitbash，键入如下命令：git -v 查看版本号<small style="color: #919191"></small></em>有空格<br></ol></p><p></p><h4>安装完Git，打开Gitbash，键入如下命令：<code>git version</code>(查看版本)</h4><br>完成上述两个工具，我们即可动手安装主角“hexo”。<p></p><p>我们使用npm进行安装 键入如下代码：&lt;<code>$ npm install -g hexo-cli</code><br><span style="color: #919191">如果下载速度比较慢的话，可以用国内淘宝镜像&nbsp;键入如下代码：<code>$ npm config set registry”<a href="https://registry.npm.taobao.org&quot;" target="_blank" rel="noopener">https://registry.npm.taobao.org&quot;</a></code><br></span><br>&nbsp;&nbsp;这段代码是把npm默认的源设置成淘宝镜像站的。</p><p></p><h3>*注册Github账号<s style="color: #919191"><small>基友网</small></s></h3><p></p><p><ul><br>    <li><a href="https://github.com/" target="_blank" rel="noopener">前往GitHub官网<small style="color: #919191">如图所示，进行注册or登录</small><br>            <img src="http://t1.aixinxi.net/o_1cer73pp4e4olukosh116l1rf4a.jpg-w.jpg" alt=""><br>        </a><br>    </li><br></ul></p><p></p><h3>注册完成创建仓库</h3><p></p><p><ul><br>    <li>仓库名称为你注册时的用户名 例如我的<a href="https://github.com/hdiebk/hdiebk.github.io" target="_blank" rel="noopener">hdiebk.github.io</a><br>    </li><li>如图创建：</li><br>    <img src="http://t1.aixinxi.net/o_1cere14j21n5914m316u7jojkbca.jpg-w.jpg" alt=""><img src="http://t1.aixinxi.net/o_1cereeikl17ie15h11pa9fem1veha.jpg-w.jpg" alt="">第二个框是描述，可填可不填。<br>    后面配置账号信息，填的就是这个名称。<br></ul></p><p></p><h3>*配置shh</h3><br>在电脑磁盘创建一个文件夹存放blog，可以是任意名称（有意义的名称最好，方便后面自己查看）然后右键找到<strong>git bash here</strong>并打开<p></p><p><ul><br>    <li>输入<code>ssh-keygen -t rsa -C </code>“你注册的邮箱” 并回车，会让你输入GitHub账号及密码</li><small style="color: #919191">当时忘了截图，大家注意看控制台就好</small><br>    出现c盘地址，根据这个地址我们到c盘中找到该文件<img src="http://t1.aixinxi.net/o_1cerciq2kru0dg1njcbq61dpla.jpg-w.jpg" alt="">其中id_rsa是私有密钥（不要透露），id_rsa.pub是公共密钥<br>    <li>然后打开公共密钥，复制下里面所有内容，登陆进去你的Github</li><br>    <img src="http://t1.aixinxi.net/o_1cerd2ni613el1oam512vr8spia.jpg-w.jpg" alt=""><img src="http://t1.aixinxi.net/o_1cerd5rkdtd3m5h1mjd74hhnfa.jpg-w.jpg" alt="">点击右上角的头像，找到图中对应的结果，点击右上角 New SSH Key按钮，Title随便填，key填入之前复制的内容即可。<br>    <li>最后一步</li>测试是否配对成功，在<strong>git bash here</strong>键入：<code>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></code>，会询问是否继续链接，输入yes即可。配置完成！<br></ul></p><p></p><h3>安装hexo</h3><p></p><p><ul><br>    <li>执行命令进行安装</li><br>    <small>一条一条来</small><br><code>npm install hexo-cli g<br>hexo init blog<br>cd blog<br>npm install<br>npm install hexo-server –save<br>npm install hexo-admin –save<br>npm install hexo-generator-archive –save<br>npm install hexo-generator-feed –save<br>npm install hexo-generator-search –save<br>npm install hexo-generator-tag –save<br>npm install hexo-deployer-git –save<br>npm install hexo-generator-sitemap –save<br></code><br></ul></p><p></p><h3>hexo将至</h3><p></p><p><ul><br>    <li>在本地服务器中使用</li><br>    <small>键入如下命令：</small><br>    <code>hexo generate</code><br>    <code>hexo s</code><br>    <li>此时打开浏览器，输入：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>就可以看到一个静态网页呈现在你面前</li><br>    <small>如果输入<a href="http://localhost:4000/浏览器出错，则是端口对占用的缘故。此时我们在" target="_blank" rel="noopener">http://localhost:4000/浏览器出错，则是端口对占用的缘故。此时我们在</a><strong>git bash here</strong>Ctrl+c中断链接，然后我们需要在<strong>git bash here</strong>键入：hexo s -p 5000</small>更改端口地址。更改好以后输入：<a href="http://localhost:5000/" target="_blank" rel="noopener">http://localhost:5000/。<br></a></ul></p><p></p><h3>上传GitHub</h3><p></p><p><ul><br>    <li>修改配置文件</li><br>    在之前创建好的本地文件夹中，找到文件夹下/_config.yml，修改deploy内容的红框中的三个参数<br>    <img src="http://t1.aixinxi.net/o_1cerhij0k150q18io11v73n382a.jpg-w.jpg" alt=""><small>第二个框中修改为自己的用户名</small><br></ul></p><p></p><h3>部署hexo</h3><p></p><p><ul><br>    <li>输入命令</li><br>    <code>hexo clean<br>hexo generate<br>hexo deploy</code><br>可缩写为<code>hexo g：hexo generate<br>hexo c：hexo clean<br>hexo s：hexo server<br>hexo d：hexo deploy</code>或者缩写为<code>hexo g -s</code><code>hexo g -d</code><br></ul><br>这时候我们在浏览器里，输入：https://你的用户.github.io/例如我的：<a href="https://hdiebk.github.io/">https://hdiebk.github.io/</a></p><p>到这一步我们就大功告成了，接下来我还会继续讲述我的hexo折腾之路。</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
 </search>
