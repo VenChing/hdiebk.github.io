@@ -263,7 +263,7 @@
 <script>
     var now = new Date(); 
     function createtime() { 
-        var grt= new Date("02/14/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        var grt= new Date("02/14/2017 00:00:00");//此处修改你的建站时间或者网站上线时间 
         now.setTime(now.getTime()+250); 
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -275,12 +275,7 @@
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
     } 
 setInterval("createtime()",250);
-</script>
-
-作者：下位子
-链接：https://www.jianshu.com/p/f5c184047e72
-來源：简书
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</footer>
+</script></footer>
     <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
