@@ -1,0 +1,508 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>前端学习-JS快速预览 | 哆啦A梦BLOG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="大雄の梦">
+    
+
+    
+    <meta name="description" content="JS与DOM的关系浏览器渲染HTML代码，把HTML源码在内存中形成一个DOM对象，也就是文档对象浏览器内部有个JS解释器/执行器/引擎：如Chrome的V8引擎我们在HTML里写JS代码，JS代码就会被引擎所执行，而执行的结果就是对DOM的操作，对DOM操作的结果就是我们常说的特效。 JavaScript要点：1.js语言本身语法2.DOM对象（把body，div，p等节点看成一个对象）3.BO">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端学习-JS快速预览">
+<meta property="og:url" content="https://hdiebk.github.io/2018/07/30/blog-js/index.html">
+<meta property="og:site_name" content="哆啦A梦BLOG">
+<meta property="og:description" content="JS与DOM的关系浏览器渲染HTML代码，把HTML源码在内存中形成一个DOM对象，也就是文档对象浏览器内部有个JS解释器/执行器/引擎：如Chrome的V8引擎我们在HTML里写JS代码，JS代码就会被引擎所执行，而执行的结果就是对DOM的操作，对DOM操作的结果就是我们常说的特效。 JavaScript要点：1.js语言本身语法2.DOM对象（把body，div，p等节点看成一个对象）3.BO">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-06T14:39:45.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端学习-JS快速预览">
+<meta name="twitter:description" content="JS与DOM的关系浏览器渲染HTML代码，把HTML源码在内存中形成一个DOM对象，也就是文档对象浏览器内部有个JS解释器/执行器/引擎：如Chrome的V8引擎我们在HTML里写JS代码，JS代码就会被引擎所执行，而执行的结果就是对DOM的操作，对DOM操作的结果就是我们常说的特效。 JavaScript要点：1.js语言本身语法2.DOM对象（把body，div，p等节点看成一个对象）3.BO">
+
+    
+    <link rel="alternative" href="/atom.xml" title="哆啦A梦BLOG" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/logoA.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/logoA.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logoA.png" alt="哆啦A梦BLOG" title="哆啦A梦BLOG"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="哆啦A梦BLOG">哆啦A梦BLOG</a></h1>
+				<h2 class="blog-motto">在有生之年，努力去做好自己喜爱的事情。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页（Home）</a></li>
+					
+						<li><a href="/archives">归档（archives）</a></li>
+					
+						<li><a href="/tags">标签（tags）</a></li>
+					
+						<li><a href="/about">关于（about）</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:hdiebk.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+    <article itemprop="articleBody">
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/07/30/blog-js/" title="前端学习-JS快速预览" itemprop="url">前端学习-JS快速预览</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="大雄の梦" target="_blank" itemprop="author">大雄の梦</a>
+		
+  <p class="article-time">
+    <time datetime="2018-07-30T05:44:35.000Z" itemprop="datePublished"> Published 2018-07-30</time>
+
+<span id="busuanzi_container_page_pv">
+    总阅读<span id="busuanzi_value_page_pv"></span>次
+</span>
+  </p>
+</header>
+
+    <div class="article-content">
+
+        
+
+        
+        <div id="toc" class="toc-article">
+            <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">JS与DOM的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.0.1.</span> <span class="toc-text">JavaScript要点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">JS引入方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.页内引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.外部引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">命名规则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">JS数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">JS基本类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">数值类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.4.</span> <span class="toc-text">字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.5.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.6.</span> <span class="toc-text">null类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.7.</span> <span class="toc-text">undefined类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.8.</span> <span class="toc-text">引用数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.9.</span> <span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.10.</span> <span class="toc-text">对象类型(PHP中的关联数组类似)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.11.</span> <span class="toc-text">function类型</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+        
+        <p></p><h1>JS与DOM的关系</h1><br>浏览器渲染HTML代码，把HTML源码在内存中形成一个DOM对象，也就是文档对象<br>浏览器内部有个JS解释器/执行器/引擎：如Chrome的V8引擎<br>我们在HTML里写JS代码，JS代码就会被引擎所执行，而执行的结果就是对DOM的操作，对DOM操作的结果就是我们常说的特效。<p></p>
+<h3>JavaScript要点：</h3><br>1.js语言本身语法<br>2.DOM对象（把body，div，p等节点看成一个对象）<br>3.BOM对象（把浏览器的地址栏，历史记录，DOM等装在一个对象里）<br><br>浏览器是“宿主”，但js的宿主不限于浏览器，也可能是服务器，如node.js<br><h1>JS引入方式</h1><br><h3>1.页内引入</h3><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  code....</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><br><br><em>script标签可以写在页面的head和body</em><br><h3>2.外部引用</h3><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;dome.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><br><br><em>多段script代码，是按照引入顺序，逐段执行</em><br><strong>一般js代码放到最后</strong><br><h1>变量声明</h1><br><h3>命名规则</h3><br>js的变量名可以用_，数字，字母，$，组成，且不能以数字开头<br>声明变量用 [var 变量名] 来声明<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">34</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">45</span>;</span><br><span class="line">alert(a+b);</span><br></pre></td></tr></table></figure><br><br><strong>注意：</strong> 变量名区分大小写，str和Str不是同一个变量<br><strong>注意：</strong> 不用var，会污染全局变量<br><br><h1>JS数据类型</h1><br><h3>基本数据类型</h3><br>Number、String、Boolean、null、undefined<br><strong>基本数据类型是按值访问的，因为可以直接操作保存在变量中的实际值。</strong><br><h3>JS基本类型</h3><br><h3>数值类型</h3><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">23</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure><br><br><h3>字符串类型</h3><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">var</span> d - <span class="string">"world"</span>;</span><br></pre></td></tr></table></figure><br><br><h3>布尔类型</h3><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> e = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure><br><br><h3>null类型</h3>
+
+<p> unll是代表对象不存在，在没找到DOM对象时 则返回null。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f =<span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h3>undefined类型</h3>
+
+<p>如果一个基本类型没定义，则理解为undefined。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> g = <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></p>
+<p></p><h3>引用数据类型</h3>  <strong>保存在堆内存中的对象。<br>　　与其他语言的不同是，你不可以直接访问堆内存空间中的位置和操作堆内存空间。只能操作对象在栈内存中的引用地址。</strong><br><em>所以，引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象。</em><p></p>
+<p>Array（数组）[]、Object（对象）{}、/$/(正则表达式)、Data、function</p>
+<p>  </p><h3>数组类型</h3><br>  创建数组的基本方式有两种：<br>  第一种是使用Array构造函数，如下：<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors =<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"yellow"</span>);</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">console</span>.log(colors[<span class="number">1</span>]);<span class="comment">//blue</span></span><br></pre></td></tr></table></figure><p></p>
+<p>  第二种为使用字面量表示，如下：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> h = [<span class="string">'上'</span>,<span class="string">'下'</span>,<span class="string">'左'</span>,<span class="string">'右'</span> ];</span><br><span class="line">&gt;&gt;&gt;alert(h[<span class="number">1</span>]); <span class="comment">//下  </span></span><br><span class="line"><span class="comment">//下标从0开始</span></span><br></pre></td></tr></table></figure>
+<p>  </p><h3>对象类型(PHP中的关联数组类似)</h3><br>  第一种是使用new操作符后跟Object构造函数，如下：<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">"China"</span>,</span><br><span class="line">obj.age = <span class="number">97</span>;</span><br><span class="line">&gt;&gt;&gt; alert(obj.name);  <span class="comment">//Chian</span></span><br><span class="line">&gt;&gt;&gt;alert(obj[<span class="string">'age'</span>]); <span class="comment">//97</span></span><br></pre></td></tr></table></figure><p></p>
+<p>  第二种方式为使用对象字面量表示，如下：<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i =&#123;<span class="string">'name'</span>:<span class="string">'JS'</span>,<span class="string">'age'</span>:<span class="string">'3'</span>&#125;;</span><br><span class="line">&gt;&gt;&gt;alert(i.age); <span class="comment">//3</span></span><br><span class="line">&gt;&gt;&gt;alert(i[<span class="string">'age'</span>]); <span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>  </p><h3>function类型</h3><br>  每个函数都是function类型的实例，而且都与其他引用类型一样具有属性和方法。函数通常是使用函数声明语法定义的，如下所示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">return</span> num1 + num2;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p></p>
+<p>这和使用函数表达式定义函数的方式相差无几。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sun = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">return</span> sum1 + sum2;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+
+        
+    </div>
+        <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/前端/">前端</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://hdiebk.github.io/2018/07/30/blog-js/" data-title="前端学习-JS快速预览 | 哆啦A梦BLOG" data-tsina="2915578625" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+
+    </article>
+    
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/07/24/blog-css/"  title="前端学习-CSS">
+ <strong>下一篇：</strong><br/> 
+ <span>前端学习-CSS
+</span>
+</a>
+</div>
+
+</nav>
+
+    
+
+
+
+<div id="SOHUCS" style="width: 95%;"></div>
+
+</div>
+
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">JS与DOM的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.0.1.</span> <span class="toc-text">JavaScript要点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">JS引入方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.页内引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.外部引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">命名规则</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">JS数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">JS基本类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">数值类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.4.</span> <span class="toc-text">字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.5.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.6.</span> <span class="toc-text">null类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.7.</span> <span class="toc-text">undefined类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.8.</span> <span class="toc-text">引用数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.9.</span> <span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.10.</span> <span class="toc-text">对象类型(PHP中的关联数组类似)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.11.</span> <span class="toc-text">function类型</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/前端/" title="前端">前端<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 用技术链接世界尽头. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2915578625" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/hdiebk" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/hdiebk" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:2510129345@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">DLAM</a> and Theme by <a href="https://github.com/hdiebk" target="_blank" title="Hdiebk">Hdiebk</a> © 2018
+		
+		<a href="/about" target="_blank" title="大雄の梦">大雄の梦</a>
+		<br>
+		<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+ 	 <script>
+ 			 var now = new Date();
+ 			 function createtime() {
+ 					 var grt= new Date("04/20/2018 00:00:00");//此处修改你的建站时间或者网站上线时间
+ 					 now.setTime(now.getTime()+250);
+ 					 days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+ 					 hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+ 					 if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+ 					 mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+ 					 seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+ 					 snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+ 					 document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+ 					 document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+ 			 }
+ 	 setInterval("createtime()",250);
+ 	 </script>
+		</p>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;Total visits:&nbsp;<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  &nbsp;&nbsp;You are Visiter No.<span id="busuanzi_value_site_uv"></span>
+</span>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    $('#toc.toc-aside').css('display','block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(){
+    var appid = 'cytAnbWNC';
+    var conf = 'prod_c156e4212361abbe6fe1d21b829b6b54';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
